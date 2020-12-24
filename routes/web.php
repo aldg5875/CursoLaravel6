@@ -56,11 +56,11 @@ Route::get('/produtos/{idproduto?}', function ($idproduto = '') {
 // redirecionamento de rotas 1/2 - dois links comuns
 
 Route::get('redirect1', function () {
-    return "redirect1";
+    return "redirect 01";
 });
 
 Route::get('redirect2', function () {
-    return "redirect2";
+    return "redirect 02";
 }); 
 
 /// redirecionamento de rota 2/2 - o tratamento.
@@ -80,6 +80,15 @@ Route::get('redirect4', function () {
 }); 
 
 Route::redirect('/redirect3', '/redirect4');
+
+
+// rotas view
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::view('/view', 'welcome')
 
 // rotas nomeadas - ->name
 
