@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use app\http\Controllers\ProdutoController;
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +17,46 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+///////////////////////////////aulas sobre controller 
+/*
+//1 - basico
+Route::get('/testecontroller', 'App\Http\Controllers\ProdutoController@index')-> name('products.index');
+
+//2 - melhorado mostrando todos os serviços
+Route::get('/testecontroller2', 'App\Http\Controllers\ProdutoController@index2')-> name('products.index2');
+
+// com passagem de parametro , mostrando 1 produto
+Route::get('/testecontroller3/{id}', 'App\Http\Controllers\ProdutoController@show')-> name('products.show');
+
+// create
+Route::get('/testecontroller4/create', 'App\Http\Controllers\ProdutoController@create')-> name('products.create');
+
+// edit
+Route::get('/testecontroller5/{id}/edit', 'App\Http\Controllers\ProdutoController@edit')-> name('products.edit');
+
+// cadastro
+Route::post('/testecontroller6', 'App\Http\Controllers\ProdutoController@store')-> name('products.store');
+
+// edit um registro
+Route::put('/testecontroller7{id}', 'App\Http\Controllers\ProdutoController@update')-> name('products.update');
+
+//deletar 
+Route::delete('/testecontroller7{id}', 'App\Http\Controllers\ProdutoController@destroy')-> name('products.destroy');
+
+// ver com o cristiano como fazer isso sem usar o nome todo
+//
+*/
+
+//Route::resource('testecontroller', 'App\Http\Controllers\ProdutoController');
+
+
+//teste de middleare
+//Route::resource('testecontroller', 'App\Http\Controllers\MaterialController')->middleware("auth");
+
+Route::resource('testecontroller', 'App\Http\Controllers\MaterialController');
+
+///////////////////////////////////////////////////// aulas sobre router ///////////////////////////////////////
 
 //1 - Rota padrão do barramento de teste2.com.br
 
@@ -88,7 +133,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/view', 'welcome')
+Route::view('/view', 'welcome');
 
 // rotas nomeadas - ->name
 
@@ -156,6 +201,7 @@ Route::middleware([])->group(function(){
 
 */
 
+/*
 Route::group([
     'Middleware' => [],
     'prefix' => 'painel',
@@ -177,3 +223,4 @@ Route::group([
     Route::get('/contrato', function () {
         return 'Contrato';
     });
+  */  
