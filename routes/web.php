@@ -18,7 +18,7 @@ use app\http\Controllers\ProdutoController;
 |
 */
 
-///////////////////////////////aulas sobre controller 
+///////////////////////////////aulas sobre controller
 /*
 //1 - basico
 Route::get('/testecontroller', 'App\Http\Controllers\ProdutoController@index')-> name('products.index');
@@ -41,7 +41,7 @@ Route::post('/testecontroller6', 'App\Http\Controllers\ProdutoController@store')
 // edit um registro
 Route::put('/testecontroller7{id}', 'App\Http\Controllers\ProdutoController@update')-> name('products.update');
 
-//deletar 
+//deletar
 Route::delete('/testecontroller7{id}', 'App\Http\Controllers\ProdutoController@destroy')-> name('products.destroy');
 
 // ver com o cristiano como fazer isso sem usar o nome todo
@@ -56,6 +56,16 @@ Route::delete('/testecontroller7{id}', 'App\Http\Controllers\ProdutoController@d
 
 Route::resource('testecontroller', 'App\Http\Controllers\MaterialController');
 
+
+//Route::get('outro', function()){
+
+ //   return TesteController@teste;
+//}
+
+Route::get('outro','ProdutoController@create');
+
+
+
 ///////////////////////////////////////////////////// aulas sobre router ///////////////////////////////////////
 
 //1 - Rota padrão do barramento de teste2.com.br
@@ -66,9 +76,9 @@ Route::get('/', function () {
 
 // pegando dentro de uma pasta
 
-Route::get('/outro', function () {
-    return view('site.andre');
-});
+//Route::get('/outro', function () {
+//    return view('site.andre');
+//});
 
 
 // retornando texto
@@ -79,7 +89,7 @@ Route::get('/contato', function () {
 
 Route::get('/empresa', function () {
     return 'empresa';
-});  
+});
 
 // route com passagem de variavel
 Route::get('/categorias/{flag}', function ($prm) {
@@ -90,13 +100,13 @@ Route::get('/categorias/{flag}', function ($prm) {
 
 Route::get('/categoria/{flag}/posts', function ($flag) {
     return "Posts da Categoria: {$flag}";
-});    
+});
 
 // com parametros não obrigatórios
 
 Route::get('/produtos/{idproduto?}', function ($idproduto = '') {
     return "Produto(s) : {$idproduto}";
-}); 
+});
 
 // redirecionamento de rotas 1/2 - dois links comuns
 
@@ -106,7 +116,7 @@ Route::get('redirect1', function () {
 
 Route::get('redirect2', function () {
     return "redirect 02";
-}); 
+});
 
 /// redirecionamento de rota 2/2 - o tratamento.
 
@@ -119,10 +129,10 @@ Route::get('redirect2', function () {
 Route::get('redirect3', function () {
     return "redirect3";
 });
-    
+
 Route::get('redirect4', function () {
     return "redirect4";
-}); 
+});
 
 Route::redirect('/redirect3', '/redirect4');
 
@@ -139,7 +149,7 @@ Route::view('/view', 'welcome');
 
 Route::get('redirect5', function () {
     return redirect()->route('url.name');
-}); 
+});
 
 Route::get('/nome-url', function() {
     return 'teste de nomeação de rota';
@@ -162,15 +172,15 @@ Route::middleware([])->group(function(){
         Route::get('/dashboard', function (){
             return 'Home Admin';
         });
-        
+
         Route::get('/financeiro', function (){
             return 'Financeiro Admin';
         });
-        
+
         Route::get('/produtos', function (){
             return 'Produtos Admin';
         });
-        
+
         Route::get('/', function (){
             return 'Admin';
         });
@@ -186,16 +196,16 @@ Route::middleware([])->group(function(){
             route::name('admin.')->group(function(){
 
                 Route::get('/dashboard', 'TesteController@teste')->name('dashboards');
-               
+
                 Route::get('/financeiro', 'TesteController@teste')->name('financeiros');
-                
+
                 Route::get('/produtos', 'TesteController@teste')->name('produto');
-                
+
                 Route::get('/', function(){
                     return redirect()->route('admin.dashboards');
                 })->name('home');
             });
-        }); 
+        });
     });
 });
 
@@ -218,9 +228,9 @@ Route::group([
 
     // Route::get('redirect5', function () {
     //     return redirect()->route('url.name');
-    // }); 
+    // });
 
     Route::get('/contrato', function () {
         return 'Contrato';
     });
-  */  
+  */

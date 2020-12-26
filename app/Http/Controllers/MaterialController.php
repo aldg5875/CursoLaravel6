@@ -39,8 +39,17 @@ class MaterialController extends Controller
      //  $teste = '<h1>OlÁ!</h1>'; //htmlspecialchars
      //  return view('site.teste', compact('teste'));//segurança contra xss
 
-     $teste = '<script> alert("OlÁ")</script>'; //htmlspecialchars
-     return view('site.teste', compact('teste'));
+     //$teste = '<script> alert("OlÁ")</script>'; //htmlspecialchars  /////////perguntar para o cristiano
+     //return view('site.teste', compact('teste'));
+
+     //$teste = '<h1>OlÁ!</h1>'; //htmlspecialchars
+     //return view('admin.pages.products.index', compact('teste'));
+
+     $teste = 123; //htmlspecialchars
+     $teste2 = 321;
+     $teste3 = [];
+     return view('admin.pages.products.index', compact('teste','teste2', 'teste3'));
+
 
     }
 
