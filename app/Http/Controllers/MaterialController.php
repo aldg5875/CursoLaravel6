@@ -47,9 +47,12 @@ class MaterialController extends Controller
 
      $teste = 123; //htmlspecialchars
      $teste2 = 321;
-     $teste3 = [];
-     return view('admin.pages.products.index', compact('teste','teste2', 'teste3'));
+     $teste3 = [1,2,3,4,5];
+     $products = ['TV', 'Geladeira', 'Forno', 'Sofá'] ;  
 
+     //$products = [] ;  
+
+     return view('admin.pages.products.index', compact('teste','teste2', 'teste3', 'products'));
 
     }
 

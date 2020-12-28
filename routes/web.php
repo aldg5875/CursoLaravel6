@@ -38,7 +38,7 @@ Route::get('/testecontroller5/{id}/edit', 'App\Http\Controllers\ProdutoControlle
 // cadastro
 Route::post('/testecontroller6', 'App\Http\Controllers\ProdutoController@store')-> name('products.store');
 
-// edit um registro
+// atualizando um registro
 Route::put('/testecontroller7{id}', 'App\Http\Controllers\ProdutoController@update')-> name('products.update');
 
 //deletar
@@ -54,8 +54,13 @@ Route::delete('/testecontroller7{id}', 'App\Http\Controllers\ProdutoController@d
 //teste de middleare
 //Route::resource('testecontroller', 'App\Http\Controllers\MaterialController')->middleware("auth");
 
-Route::resource('testecontroller', 'App\Http\Controllers\MaterialController');
+Route::resource('testecontroller', 'MaterialController');
 
+Route::resource('products', 'productController');
+
+
+
+//App\Http\Controllers\
 
 //Route::get('outro', function()){
 
